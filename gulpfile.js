@@ -46,9 +46,9 @@ gulp.task('compress', ['clean'], function() {
     }))
     .pipe(gulp.dest('./build/app/'))
 
-  gulp.src('./less/style.less')
+  gulp.src('./style/main.less')
     .pipe(less())
-    .pipe(gulp.dest('./build/css/'))
+    .pipe(gulp.dest('./build/style/'))
 
   gulp.src('./fonts/*')
     .pipe(gulp.dest('./build/fonts/'))

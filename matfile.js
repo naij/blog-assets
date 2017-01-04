@@ -8,7 +8,9 @@ mat.task('less', function () {
     .rewrite([
       [/\.css/g, '.less']
     ])
-    .use(less({sourceMap: {sourceMapFileInline: true}}))
+    .use(less({
+      sourceMap: {sourceMapFileInline: true}
+    }))
 })
 
 mat.task('pushState', function () {

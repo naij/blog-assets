@@ -26,7 +26,7 @@
     }
 
     Ajax({
-      url: '/api/pubinfo',
+      url: '/api/pubinfo.json',
       dataType: 'json'
     }).then(function (resp) {
       Magix.local('isLogined', resp[0].data.isLogined)
