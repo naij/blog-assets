@@ -18,8 +18,7 @@ mat.task('pushState', function () {
     ])
 })
 
-// daily反向代理
-mat.task('daily', ['less', 'pushState'], function () {
+mat.task('default', ['less', 'pushState'], function () {
   mat.url([/\.json/])
     .use(proxy({
       proxyPass: '127.0.0.1:7001'
