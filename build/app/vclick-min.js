@@ -1,0 +1,1 @@
+KISSY.add("app/vclick",function(e,t){var a=e.all;a("body").delegate("click","a",function(e){var r=a(e.currentTarget),c=r.attr("href"),i=r.attr("vclick-ignore");c&&/^\/[^\/]/.test(c)&&!i&&(e.preventDefault(),t.navigate(c))})},{requires:["magix/router"]});
