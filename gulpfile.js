@@ -48,6 +48,12 @@ gulp.task('compress', ['clean'], function() {
 
   gulp.src('./style/main.less')
     .pipe(less())
+    .pipe(rename(function (path) {
+      path.basename += "-min"
+    }))
+    .pipe(cssmin({
+      compatibility: 'ie8'
+    }))
     .pipe(gulp.dest('./build/style/'))
 
   gulp.src('./fonts/*')
