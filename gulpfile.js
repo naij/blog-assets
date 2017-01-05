@@ -15,7 +15,7 @@ gulp.task('clean', function() {
 gulp.task('compress', ['clean'], function() {
   gulp.src('./app/views/**/*.js')
     .pipe(combine({
-      magixVersion: 2.0
+      magixVersion: 1.1
     }))
     .pipe(rename(function (path) {
       path.basename += "-min"
