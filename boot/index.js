@@ -13,7 +13,7 @@
       packages: [
         {
           name: 'app',
-          path: bootConfig.staticCDN,
+          path: bootConfig.cdn,
           debug: bootConfig.debug
         }
       ]
@@ -33,7 +33,7 @@
 
       Magix.start({
         nativeHistory: true,
-        appRoot: bootConfig.staticCDN,
+        appRoot: bootConfig.cdn,
         iniFile: 'app/ini',
         extensions: [
           'app/extview',
