@@ -6,14 +6,7 @@ KISSY.add('app/ini', function (S, Magix) {
       {path: '/pages/article/detail'},
       {path: '/pages/about/index'},
       {path: '/pages/tags/list'},
-      {path: '/pages/archive/list'},
-      {path: '/manage/login'},
-      {path: '/manage/index', isLogin: true},
-      {path: '/manage/article/list', isLogin: true},
-      {path: '/manage/article/add', isLogin: true},
-      {path: '/manage/article/edit', isLogin: true},
-      {path: '/manage/picture/list', isLogin: true},
-      {path: '/manage/tool/list', isLogin: true}
+      {path: '/pages/archive/list'}
     ]
   }
   return {
@@ -25,9 +18,6 @@ KISSY.add('app/ini', function (S, Magix) {
         S.each(Routes, function(v, k) {
           S.each(v, function(item) {
             if (item.path == pathname) {
-              if (item.isLogin) {
-                Magix.checkToLogin()
-              }
               s = k
               return false
             }

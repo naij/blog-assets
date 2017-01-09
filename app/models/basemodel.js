@@ -1,4 +1,4 @@
-KISSY.add("app/models/basemodel", function (S, MxModel, IO, Util) {
+KISSY.add("app/models/basemodel", function (S, Magix, MxModel, IO, Util) {
   var SyncCounter = 0
   /**
    * 流控对象
@@ -184,6 +184,7 @@ KISSY.add("app/models/basemodel", function (S, MxModel, IO, Util) {
         model.setUrlParams('t', S.now())
         data = model.getUrlParams()
       } else {
+        model.setPostParams('_csrf', Magix.local('csrf'))
         data = model.getPostParams()
       }
 
@@ -235,6 +236,7 @@ KISSY.add("app/models/basemodel", function (S, MxModel, IO, Util) {
   })
 }, {
   requires: [
+    'magix/magix',
     "mxext/model", 
     "ajax",
     "app/util/util"

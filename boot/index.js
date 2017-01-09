@@ -19,27 +19,14 @@
       ]
     })
 
-    Magix.checkToLogin =  function() {
-      if (!Magix.local('isLogined')) {
-        location.href = '/manage/login'
-      }
-    }
-
-    Ajax({
-      url: '/api/pubinfo.json',
-      dataType: 'json'
-    }).then(function (resp) {
-      Magix.local('isLogined', resp[0].data.isLogined)
-
-      Magix.start({
-        nativeHistory: true,
-        appRoot: bootConfig.cdn,
-        iniFile: 'app/ini',
-        extensions: [
-          'app/extview',
-          'app/vclick'
-        ]
-      })
+    Magix.start({
+      nativeHistory: true,
+      appRoot: bootConfig.cdn,
+      iniFile: 'app/ini',
+      extensions: [
+        'app/extview',
+        'app/vclick'
+      ]
     })
   })
 }())
