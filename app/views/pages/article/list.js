@@ -1,43 +1,30 @@
-KISSY.add('app/views/pages/article/list', function (S, View, MM, VOM, Router, Node, Util) {
-  var $ = Node.all
+var Magix = require('magix')
 
-  return View.extend({
-    locationChange: function (e) {
-      this.animateLoading()
-      this.render()
-    },
-    render: function () {
-      var me = this
-      var loc = me.location
-      var params = loc.params
-      var type = params.type || 'f2e'
+module.exports = Magix.View.extend({
+  tmpl: '@list.html',
+  render: function() {
+    var me = this
+    var type = me.param('type') || 'f2e'
 
-      me.manage(MM.fetchAll([{
-        name: 'article_list',
-        urlParams: {
-          type: type
-        }
-      }], function (errs, MesModel) {
-        var data = MesModel.get('data')
+    me.request().all([{
+      name: 'article_list',
+      params: {
+        type: type
+      }
+    }], function(e, MesModel) {
+      var data = MesModel.get('data')
 
-        for (var i = 0; i < data.length; i++) {
-          data[i].content = data[i].content.replace(/<[^>]+>/g, '')
-          data[i].content = data[i].content.substring(0, 300) + ' ... ...'
-        }
-
-        me.setViewPagelet({
-          list: data
-        })
-      }))
+      me.data = {
+        list: data
+      }
+      me.setView()
+    })
+  },
+  filters: {
+    format: function(value) {
+      value = value.replace(/<[^>]+>/g, '')
+      value = value.substring(0, 300) + ' ... ...'
+      return value
     }
-  })
-},{
-  requires:[
-    'mxext/view',
-    'app/models/modelmanager',
-    'magix/vom',
-    'magix/router',
-    'node',
-    'app/util/util'
-  ]
+  }
 })

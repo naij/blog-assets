@@ -5,14 +5,14 @@
 </div>
 
 <dl class="archive">
-  {{#list}}
-  <dt>{{ym}}</dt>
+  {{#for(item in list)}}
+  <dt>{{item.ym}}</dt>
   <dd>
     <ul>
-      {{#list}}
-      <li><a href="/pages/article/detail?id={{id}}&type={{type}}">{{title}}</a></li>
-      {{/list}}
+      {{#for(subitem in item.list)}}
+      <li><a href="/pages/article/detail?id={{subitem.id}}&type={{subitem.type}}">{{subitem.title}}</a></li>
+      {{/for}}
     </ul>
   </dd>
-  {{/list}}
+  {{/for}}
 </dl>

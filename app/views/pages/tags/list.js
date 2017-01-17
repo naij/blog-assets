@@ -1,56 +1,48 @@
-KISSY.add('app/views/pages/tags/list', function (S, View, MM, VOM, Router, Node, Util) {
-  var $ = Node.all
+var Magix = require('magix')
 
-  return View.extend({
-    locationChange: function (e) {
-      this.render()
-    },
-    render: function () {
-      var me = this
-      var loc = me.location
-      var params = loc.params
-      var tag = params.tag
+module.exports = Magix.View.extend({
+  tmpl: '@list.html',
+  ctor: function() {
+    this.observe(['tag'])
+  },
+  render: function() {
+    var me = this
+    var tag = me.param('tag')
 
-      if (tag) {
-        me.manage(MM.fetchAll([{
-          name: 'article_list_by_tag',
-          urlParams: {
-            tag: tag
-          }
-        }], function (errs, MesModel) {
-          var data = MesModel.get('data')
-          
-          for (var i = 0; i < data.length; i++) {
-            data[i].content = data[i].content.replace(/<[^>]+>/g, '')
-            data[i].content = data[i].content.substring(0, 300) + ' ... ...'
-          }
+    if (tag) {
+      me.request().all([{
+        name: 'article_list_by_tag',
+        params: {
+          tag: tag
+        }
+      }], function(e, MesModel) {
+        var data = MesModel.get('data')
 
-          me.setViewPagelet({
-            tag: tag,
-            list: data
-          })
-        }))
-      } else {
-        me.manage(MM.fetchAll([{
-          name: 'article_tag_group'
-        }], function (errs, MesModel) {
-          var data = MesModel.get('data')
-          
-          me.setViewPagelet({
-            tag: '',
-            list: data
-          })
-        }))
-      }
+        me.data = {
+          tag: tag,
+          list: data
+        }
+        me.setView()
+      })
+    } else {
+      me.request().all([{
+        name: 'article_tag_group'
+      }], function(e, MesModel) {
+        var data = MesModel.get('data')
+
+        me.data = {
+          tag: '',
+          list: data
+        }
+        me.setView()
+      })
     }
-  })
-},{
-  requires:[
-    'mxext/view',
-    'app/models/modelmanager',
-    'magix/vom',
-    'magix/router',
-    'node',
-    'app/util/util'
-  ]
+  },
+  filters: {
+    format: function(value) {
+      value = value.replace(/<[^>]+>/g, '')
+      value = value.substring(0, 300) + ' ... ...'
+      return value
+    }
+  }
 })

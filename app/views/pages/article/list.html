@@ -1,27 +1,25 @@
-<ul class="article-list" bx-name="codeprettify" bx-path="components/codeprettify/" bx-tmpl="list" bx-datakey="list">
-  {{#list}}
+<ul class="article-list">
+  {{#for(item in list)}}
   <li class="list-item">
     <div class="hd">
       <h3 class="title">
-        <a href="/pages/article/detail?id={{id}}&type={{type}}">{{title}}</a>
+        <a href="/pages/article/detail?id={{item.id}}&type={{item.type}}">{{item.title}}</a>
       </h3>
       <div class="meta">
-        <span class="date">{{createdAt}}</span>
+        <span class="date">{{item.createdAt}}</span>
         <span class="divide"></span>
-        <a class="tag" href="/pages/tags/list?tag={{tag}}">{{tag}}</a>
+        <a class="tag" href="/pages/tags/list?tag={{item.tag}}">{{item.tag}}</a>
       </div>
     </div>
     <div class="bd markdown-body">
-      {{{content}}}
+      {{{item.content|format}}}
     </div>
     <div class="ft">
-      <a href="/pages/article/detail?id={{id}}&type={{type}}" class="continue-reading">Read more →</a>
+      <a href="/pages/article/detail?id={{item.id}}&type={{item.type}}" class="continue-reading">Read more →</a>
     </div>
   </li>
-  {{/list}}
-  {{^list}}
+  {{/for}}
   <li class="no-data">
     嗯，什么都还没写~
   </li>
-  {{/list}}
 </ul>

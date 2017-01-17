@@ -1,31 +1,19 @@
-KISSY.add('app/views/pages/archive/list', function (S, View, MM, VOM, Router, Node, Util) {
-  var $ = Node.all
+var Magix = require('magix')
 
-  return View.extend({
-    locationChange: function (e) {
-      this.render()
-    },
-    render: function () {
-      var me = this
+module.exports = Magix.View.extend({
+  tmpl: '@list.html',
+  render: function() {
+    var me = this
 
-      me.manage(MM.fetchAll([{
-        name: 'archive'
-      }], function (errs, MesModel) {
-        var data = MesModel.get('data')
+    me.request().all([{
+      name: 'archive'
+    }], function(e, MesModel) {
+      var data = MesModel.get('data')
 
-        me.setViewPagelet({
-          list: data
-        })
-      }))
-    }
-  })
-},{
-  requires:[
-    'mxext/view',
-    'app/models/modelmanager',
-    'magix/vom',
-    'magix/router',
-    'node',
-    'app/util/util'
-  ]
+      me.data = {
+        list: data
+      }
+      me.setView()
+    })
+  }
 })

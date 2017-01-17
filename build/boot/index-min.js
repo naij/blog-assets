@@ -1,1 +1,0 @@
-!function(){function t(t){return new Function("return "+t)()}var n=document.getElementsByTagName("script"),e=n[n.length-1],i=t(e.getAttribute("boot-config"));KISSY.use("magix/magix, magix/router, io",function(t,n){t.config({packages:[{name:"app",path:i.cdn,debug:i.debug}]}),n.start({nativeHistory:!0,appRoot:i.cdn,iniFile:"app/ini",extensions:["app/extview","app/vclick"]})})}();

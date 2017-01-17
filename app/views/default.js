@@ -1,57 +1,23 @@
-KISSY.add('app/views/default', function (S, View, VOM, UA, Node, R, Util) {
-  var $ = Node.all
-  return View.extend({
-    init: function () {
-      var me = this
-      me.observeLocation({
-        pathname: true
-      })
-    },
-    render: function () {
-      var me = this
-      me.setViewPagelet({
-        //数据对象
-      }, function () {
-        me.mountMainFrame()
-        me.animateLoading()
-      })
-    },
-    mountMainFrame: function () {
-      var me = this
-      var loc = me.location
-      var pathname = loc.pathname
-      var vframe = VOM.get('magix_vf_main')
-      if (vframe) {
-        if (pathname == '/') {
-          var viewPath = 'app/views/pages/article/list'
-        } else {
-          var pns = pathname.split('/')
-          pns.shift()
-          var folder = pns.shift() || 'home'
-          var view = pns.join('/') || 'index'
-          if (S.endsWith(view, '/')) {
-            view += 'index'
-          }
-          var viewPath = 'app/views/' + folder + '/' + view
-        }
-        
-        vframe.mountView(viewPath)
-      }
-    },
-    locationChange: function (e) {
-      this.mountMainFrame()
-      this.animateLoading()
-      Util.hideDialog()
-      Util.hideToolTip()
+var Magix = require('magix')
+var Router = Magix.Router
+
+module.exports = Magix.View.extend({
+  tmpl: '@default.html',
+  ctor: function() {
+    this.observe(null, true)
+  },
+  render: function() {
+    var me = this
+    var loc = Router.parse()
+    var path = loc.path
+
+    if (path === '/') {
+      path = '/pages/article/list'
     }
-  })
-}, {
-  requires: [
-    'mxext/view',
-    'magix/vom',
-    'ua',
-    'node',
-    'magix/router',
-    'app/util/util'
-  ]
+
+    me.data = {
+      mainView: 'app/views' + path
+    }
+    me.setView()
+  }
 })

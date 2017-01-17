@@ -1,7 +1,7 @@
 var Magix = require('magix')
 
 module.exports = Magix.View.extend({
-  tmpl: '@index.html',
+  tmpl: '@404.html',
   render: function() {
     var me = this
     me.setView()

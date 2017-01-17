@@ -1,38 +1,24 @@
-KISSY.add('app/views/pages/article/detail', function (S, View, MM, VOM, Router, Node, Util) {
-  var $ = Node.all
+var Magix = require('magix')
 
-  return View.extend({
-    locationChange: function (e) {
-      this.render()
-    },
-    render: function () {
-      var me = this
-      var loc = me.location
-      var params = loc.params
-      var id = params.id
+module.exports = Magix.View.extend({
+  tmpl: '@detail.html',
+  render: function() {
+    var me = this
+    var id = me.param('id')
 
-      me.manage(MM.fetchAll([{
-        name: 'article_detail',
-        urlParams: {
-          id: id
-        }
-      }], function (errs, MesModel) {
-        var data = MesModel.get('data')
+    me.request().all([{
+      name: 'article_detail',
+      params: {
+        id: id
+      }
+    }], function(e, MesModel) {
+      var data = MesModel.get('data')
 
-        me.setViewPagelet({
-          list: data,
-          aid: id
-        })
-      }))
-    }
-  })
-},{
-  requires:[
-    'mxext/view',
-    'app/models/modelmanager',
-    'magix/vom',
-    'magix/router',
-    'node',
-    'app/util/util'
-  ]
+      me.data = {
+        article: data,
+        id: id
+      }
+      me.setView()
+    })
+  }
 })
