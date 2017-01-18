@@ -1,5 +1,6 @@
 var Magix = require('magix')
 var $ = require('jquery')
+var prettify = require('prettify')
 
 module.exports = Magix.View.extend({
   ctor: function(e) {
@@ -7,6 +8,6 @@ module.exports = Magix.View.extend({
   },
   render: function() {
     $('pre').addClass('prettyprint linenums')
-    prettyPrint()
+    prettify.prettyPrint()
   }
 })

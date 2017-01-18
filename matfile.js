@@ -16,7 +16,7 @@ var analyse = function() {
   return function* combine(next) {
     yield next
 
-    if (/sea\.js|prettify\.js|boot\.js|\.json/.test(this.path)) return
+    if (/sea\.js|boot\.js|\.json/.test(this.path)) return
 
     var body = this.body.toString()
 

@@ -13,6 +13,9 @@ var pathMap = {
 
 module.exports = Magix.View.extend({
   tmpl: '@header.html',
+  ctor: function() {
+    this.observe(['type'], true)
+  },
   render: function() {
     var me = this
     me.setView().then(function() {

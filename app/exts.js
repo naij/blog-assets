@@ -23,9 +23,6 @@ Magix.View.merge({
     var s = new Manager()
     return me.capture(key || s.id, s, true)
   },
-  wrapModel: function(Model) {
-    return new Model(this)
-  },
   /**
    * 更新view
    * @param  {function} firstCallback 第一次渲染view会调用

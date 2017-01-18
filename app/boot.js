@@ -12,8 +12,9 @@ var base = function() {
 seajs.config({
   alias: {
     'jquery': 'app/libs/jquery-1.12.1',
-    'magix': 'app/libs/magix.js',
-    'pat': 'app/libs/pat.js'
+    'magix': 'app/libs/magix',
+    'pat': 'app/libs/pat',
+    'prettify': 'app/libs/prettify'
   },
   base: base,
   charset: 'utf-8'

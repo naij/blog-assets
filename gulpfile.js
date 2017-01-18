@@ -5,7 +5,7 @@ var rename  = require('gulp-rename')
 var uglify  = require('gulp-uglify')
 var cssmin  = require('gulp-cssmin')
 var clean   = require('gulp-clean')
-var combine = require('gulp-magix-combine')
+var combine = require('gulp-magix-cmd')
 
 gulp.task('clean', function() {
   return gulp.src('./build', {read: false})
@@ -13,38 +13,34 @@ gulp.task('clean', function() {
 })
 
 gulp.task('compress', ['clean'], function() {
-  gulp.src('./app/views/**/*.js')
-    .pipe(combine({
-      magixVersion: 1.1
-    }))
-    .pipe(rename(function (path) {
-      path.basename += "-min"
-    }))
-    .pipe(uglify({
-      output: {ascii_only:true}
-    }))
-    .pipe(gulp.dest('./build/app/views'))
-
-  gulp.src('./boot/*.js')
-    .pipe(rename(function (path) {
-      path.basename += "-min"
-    }))
-    .pipe(uglify({
-      output:{ascii_only:true}
-    }))
-    .pipe(gulp.dest('./build/boot/'))
-
   gulp.src([
-    './app/**/*.js', 
-    '!./app/views/**/*.js'
+    './app/**/*.js',
+    '!./app/boot.js',
+    '!./app/libs/sea.js'
   ])
-    .pipe(rename(function (path) {
-      path.basename += "-min"
-    }))
+    .pipe(combine())
     .pipe(uglify({
-      output: {ascii_only:true}
+      output: {
+        ascii_only: true
+      }
     }))
     .pipe(gulp.dest('./build/app/'))
+
+  gulp.src(['./app/boot.js'])
+    .pipe(uglify({
+      output: {
+        ascii_only: true
+      }
+    }))
+    .pipe(gulp.dest('./build/app/'))
+
+  gulp.src(['./app/libs/sea.js'])
+    .pipe(uglify({
+      output: {
+        ascii_only: true
+      }
+    }))
+    .pipe(gulp.dest('./build/app/libs/'))
 
   gulp.src('./style/main.less')
     .pipe(less())
