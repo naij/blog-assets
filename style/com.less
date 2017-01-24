@@ -1,0 +1,424 @@
+/**
+ * 一些组件样式
+ **/
+@import "./com/prettify.less";
+
+
+.markdown-body {
+  font-size: 12px;
+  line-height: 1.7;
+  overflow: hidden;
+  word-wrap: break-word;
+
+  &>*:first-child {
+    margin-top: 0 !important;
+  }
+  &>*:last-child {
+    margin-bottom: 0 !important;
+  }
+  a {
+    color: #2980b9;
+  }
+  a.absent {
+    color: #c00;
+  }
+  a.anchor {
+    display: block;
+    padding-right: 6px;
+    padding-left: 30px;
+    margin-left: -30px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0
+  }
+  a.anchor:focus {
+    outline: none;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 1em 0 15px;
+    padding: 0;
+    font-weight: bold;
+    line-height: 1.7;
+    cursor: text;
+    position: relative
+  }
+  h1 .octicon-link,
+  h2 .octicon-link,
+  h3 .octicon-link,
+  h4 .octicon-link,
+  h5 .octicon-link,
+  h6 .octicon-link {
+    display: none;
+    color: #000;
+  }
+  h1:hover a.anchor,
+  h2:hover a.anchor,
+  h3:hover a.anchor,
+  h4:hover a.anchor,
+  h5:hover a.anchor,
+  h6:hover a.anchor {
+    text-decoration: none;
+    line-height: 1;
+    padding-left: 0;
+    margin-left: -22px;
+    top: 15%;
+  }
+  h1:hover a.anchor .octicon-link,
+  h2:hover a.anchor .octicon-link,
+  h3:hover a.anchor .octicon-link,
+  h4:hover a.anchor .octicon-link,
+  h5:hover a.anchor .octicon-link,
+  h6:hover a.anchor .octicon-link {
+    display: inline-block;
+  }
+  h1 tt,
+  h1 code,
+  h2 tt,
+  h2 code,
+  h3 tt,
+  h3 code,
+  h4 tt,
+  h4 code,
+  h5 tt,
+  h5 code,
+  h6 tt,
+  h6 code {
+    font-size: inherit;
+  }
+  h1 {
+    font-size: 2.5em;
+    border-bottom: 1px solid #ddd;
+  }
+  h2 {
+    font-size: 2em;
+    border-bottom: 1px solid #eee;
+  }
+  h3 {
+    font-size: 1.5em;
+  }
+  h4 {
+    font-size: 1.2em;
+  }
+  h5 {
+    font-size: 1em;
+  }
+  h6 {
+    font-size: 1em;
+    color: #777;
+  }
+  p,
+  blockquote,
+  ul,
+  ol,
+  dl,
+  table {
+    margin: 15px 0;
+  }
+  hr {
+    background: transparent url("/assets/primer/markdown/dirty-shade-a46e6e1679bb726b30abdfdb0d08835b1681c46a.png") repeat-x 0 0;
+    border: 0 none;
+    color: #ccc;
+    height: 4px;
+    padding: 0;
+    margin: 15px 0;
+  }
+  ul,
+  ol {
+    padding-left: 30px;
+  }
+  ul {
+    list-style-type: square;
+  }
+  ol {
+    list-style-type: decimal;
+  }
+  ul.no-list,
+  ol.no-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  ul ul,
+  ul ol,
+  ol ol,
+  ol ul {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  dl {
+    padding: 0;
+  }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin-top: 15px;
+  }
+  dl dd {
+    margin-bottom: 15px;
+    padding: 0 15px;
+  }
+  blockquote {
+    border-left: 4px solid #DDD;
+    padding: 0 15px;
+    color: #777;
+  }
+  blockquote>:first-child {
+    margin-top: 0px;
+  }
+  blockquote>:last-child {
+    margin-bottom: 0px;
+  }
+  table {
+    width: 100%;
+    overflow: auto;
+    display: block;
+  }
+  table th {
+    font-weight: bold;
+  }
+  table th,
+  table td {
+    border: 1px solid #ddd;
+    padding: 6px 13px;
+  }
+  table tr {
+    border-top: 1px solid #ccc;
+    background-color: #fff;
+  }
+  table tr:nth-child(2n) {
+    background-color: #f8f8f8;
+  }
+  img {
+    max-width: 100%;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  span.frame {
+    display: block;
+    overflow: hidden;
+  }
+  span.frame>span {
+    border: 1px solid #ddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto;
+  }
+  span.frame span img {
+    display: block;
+    float: left;
+  }
+  span.frame span span {
+    clear: both;
+    color: #333;
+    display: block;
+    padding: 5px 0 0;
+  }
+  span.align-center {
+    display: block;
+    overflow: hidden;
+    clear: both;
+  }
+  span.align-center>span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center;
+  }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center;
+  }
+  span.align-right {
+    display: block;
+    overflow: hidden;
+    clear: both;
+  }
+  span.align-right>span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right;
+  }
+  span.align-right span img {
+    margin: 0;
+    text-align: right
+  }
+  span.float-left {
+    display: block;
+    margin-right: 13px;
+    overflow: hidden;
+    float: left;
+  }
+  span.float-left span {
+    margin: 13px 0 0;
+  }
+  span.float-right {
+    display: block;
+    margin-left: 13px;
+    overflow: hidden;
+    float: right;
+  }
+  span.float-right>span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right;
+  }
+  tt {
+    margin: 0 2px;
+    padding: 0px 5px;
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+  }
+  pre ol {
+    // padding-left: 0;
+  }
+  code {
+    border-radius: 3px;
+    background-color: #f7f7f9;
+    border: 1px solid #e1e1e8;
+    padding: 0 5px;
+  }
+  pre code {
+    border-radius: none;
+    background-color: none;
+    border: none;
+    padding: none;
+  }
+}
+
+.block-duoshuo {
+  margin-bottom: 50px;
+  margin-top: 20px;
+  background: #fafafb;
+  padding: 20px;
+  padding-top: 0px;
+  border-radius: 6px;
+
+  .ds-powered-by {
+    display: none !important;
+  }
+
+  .ds-rounded {
+    display: none !important;
+  }
+  #ds-thread #ds-reset .ds-sort a.ds-current, 
+  #ds-thread #ds-reset .ds-sort a:active {
+    color: #333;
+  }
+  #ds-thread #ds-reset li.ds-tab a.ds-current {
+    border: 0px;
+    background: none;
+  }
+  #ds-thread #ds-reset .ds-replybox {
+    background: #fff;
+    border-radius: 4px;
+  }
+  #ds-thread #ds-reset ul.ds-comments-tabs .ds-highlight {
+    color: #333 !important;
+  }
+
+  #ds-reset .ds-avatar {
+    background: none;
+  }
+  #ds-reset .ds-avatar img {
+    box-shadow: none;
+    border-radius: 15px !important;
+  }
+  #ds-thread #ds-reset .ds-login-buttons {
+    p {
+      display: none;
+    }
+    p:before {
+      content: '发言要举手，评论要登陆'
+    }
+  }
+  #ds-thread #ds-reset .ds-replybox form {
+    border: none;
+  }
+  #ds-thread #ds-reset .ds-comment-actions a.ds-post-repost {
+    display: none;
+  }
+  #ds-thread #ds-reset .ds-login-buttons .ds-social-links {
+    display: none;
+  }
+  #ds-thread #ds-reset .ds-replybox .ds-avatar {
+    display: none;
+  }
+  #ds-thread #ds-reset .ds-replybox {
+    padding-left: 0px;
+    form {
+      // border: 1px solid #e7e7e7;
+      border-radius: 4px;
+    }
+  }
+  #ds-thread #ds-reset .ds-meta {
+    display: none;
+  }
+  #ds-thread #ds-reset .ds-add-emote {
+    display: none;
+  }
+  #ds-reset .ds-gradient-bg {
+    background: none;
+  }
+  #ds-thread #ds-reset .ds-post-options {
+    border: none;
+    margin-right: 0px;
+  }
+  #ds-thread #ds-reset .ds-post-button {
+    font-weight: normal;
+    font-size: 12px;
+    text-shadow: none;
+    border: 0;
+    line-height: 23px;
+    width: 57px;
+    background: #00a3cf;
+    color: #fff;
+
+    left: 8px;
+    top: -7px;
+    background: #f3f3f3;
+    color: #333;
+    border-radius: 4px;
+    height: 30px;
+    width: 80px;
+  }
+  #ds-thread #ds-reset .ds-textarea-wrapper {
+    background: none;
+    border: none;
+  }
+  #ds-thread #ds-reset li.ds-post {
+    border-top: 1px solid #f9f9f9;
+    margin-top: -1px;
+  }
+  #ds-reset .ds-highlight {
+    color: #333 !important;
+  }
+  #ds-thread #ds-reset button:hover, 
+  #ds-thread #ds-reset button:active, 
+  #ds-thread #ds-reset a.ds-unread-comments-count:hover, 
+  #ds-thread #ds-reset .ds-post-button:hover {
+    background: @color-blue !important;
+    color: #fff;
+  }
+  #ds-thread #ds-reset .ds-comments, 
+  #ds-thread #ds-reset .ds-paginator {
+    border-bottom: none !important;
+  }
+
+  #ds-thread #ds-reset .ds-post-button {
+    border-radius: 80px;
+  }
+}

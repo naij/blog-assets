@@ -37,12 +37,5 @@ module.exports = Magix.View.extend({
         me.setView()
       })
     }
-  },
-  filters: {
-    format: function(value) {
-      value = value.replace(/<[^>]+>/g, '')
-      value = value.substring(0, 300) + ' ... ...'
-      return value
-    }
   }
 })

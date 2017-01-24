@@ -12,27 +12,19 @@
         <a href="/pages/article/detail?id={{item.id}}&type={{item.type}}">{{item.title}}</a>
       </h3>
       <div class="meta">
-        <span class="date">{{item.createdAt}}</span>
+        <span class="date">{{item.createdAt|toNormalTime}}</span>
         <span class="divide"></span>
         <a class="tag" href="/pages/tags/list?tag={{item.tag}}">{{item.tag}}</a>
       </div>
     </div>
     <div class="bd markdown-body">
-      {{{item.content|format}}}
-    </div>
-    <div class="ft">
-      <a href="/pages/article/detail?id={{item.id}}&type={{item.type}}" class="continue-reading">Read more →</a>
+      {{{item.content|toDesc}}}
     </div>
   </li>
   {{/for}}
 </ul>
 {{/if}}
 {{^if(tag)}}
-<div class="wrap-hd clearfix">
-  <div class="title-bar">
-    <h2 class="title">标签</h2>
-  </div>
-</div>
 <div class="tag-list">
   <ul class="clearfix">
     {{#for(item in list)}}

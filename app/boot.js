@@ -14,6 +14,7 @@ seajs.config({
     'jquery': 'app/libs/jquery-1.12.1',
     'magix': 'app/libs/magix',
     'pat': 'app/libs/pat',
+    'moment': 'app/libs/moment',
     'prettify': 'app/libs/prettify'
   },
   base: base,
