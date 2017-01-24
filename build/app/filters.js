@@ -1,1 +1,1 @@
-define("app/filters",function(e,f,i){i.exports={}});
+define("app/filters",["moment"],function(t,e,n){var r=t("moment");n.exports={toDesc:function(t){return t.replace(/<[^>]+>/g,"").substring(0,300)+" ... ..."},toNormalTime:function(t){return r(t).format("YYYY-MM-DD")}}});

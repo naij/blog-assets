@@ -212,20 +212,23 @@ body {
 /* 自适应样式 */
 @media screen and (max-width: 760px) {
   .header {
-    position: static;
-    width: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
 
-    title {
-      position: relative;
+    .header-bd {
+      width: auto;
+      height: 62px;
+    }
 
-      a {
-        position: absolute;
-        top: 6px;
-        left: 0;
-      }
+    .title {
+      margin: 9px 0 0 9px;
+      font-size: 24px;
     }
     .site-nav {
-      width: auto;
+      display: none;
 
       li {
         float: left;
@@ -234,11 +237,16 @@ body {
     }
   }
   .content {
-    margin-left: 0px;
+    margin-top: 72px;
     padding: 10px;
+    width: auto;
   }
   .footer {
     margin-left: 0;
+
+    .footer-bd {
+      width: auto;
+    }
 
     .copyright {
       margin: 0 10px;
