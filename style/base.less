@@ -6,6 +6,11 @@
 @color-blue: #2980b9;
 @color-red: #ef3000;
 @color-yellow: #fcc232;
+@color-c: #ccc;  // 20%
+@color-l: #999;  // 40%
+@color-m: #666;  // 60%
+@color-d: #333;  // 80%
+
 @layout-width: 1000px;
 
 /**
@@ -82,51 +87,10 @@
   background-color: #fdd080;
 }
 
-
-
 /**
  * iconfont
  **/
-@font-face {
-  font-family: "uxiconfont";
-  src: url("http://t.tbcdn.cn/g/thx/brix/fonts/uxiconfont.eot");
-  src: url("http://t.tbcdn.cn/g/thx/brix/fonts/uxiconfont.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
-  url("http://t.tbcdn.cn/g/thx/brix/fonts/uxiconfont.woff") format("woff"), /* chrome、firefox */
-  url("http://t.tbcdn.cn/g/thx/brix/fonts/uxiconfont.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-  url("http://t.tbcdn.cn/g/thx/brix/fonts/uxiconfont.svg#svgFontName") format("svg");/* IE9*/
-  /* iOS 4.1- */
-}
-
-.iconfont {
-  font-family: "uxiconfont";
-  font-size: 16px;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-@font-face {
-  font-family: "iconfont-blog";
-  font-weight: normal;
-  font-style: normal;
-  src: url("http://at.alicdn.com/t/font_1424352600_672588.eot");
-  src: url("http://at.alicdn.com/t/font_1424352600_672588.eot?#iefix") format("embedded-opentype"), url("http://at.alicdn.com/t/font_1424352600_672588.woff") format("woff"), url("http://at.alicdn.com/t/font_1424352600_672588.ttf") format("truetype"), url("http://at.alicdn.com/t/font_1424352600_672588.svg#iconfont") format("svg");
-}
-
-.iconfont-blog {
-  font-family: "iconfont-blog";
-  font-size: 16px;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  display: inline-block;
-  /* 1 */
-  speak: none;
-  /* 2 */
-  -webkit-font-smoothing: antialiased;
-  /* 3 */
-  -moz-osx-font-smoothing: grayscale;
-}
+@import url("//at.alicdn.com/t/font_vzc7bw90op03haor.css");
 
 /**
  * 防止a标签在mac下闪速
@@ -167,20 +131,41 @@ a:hover {
 }
 
 /**
+ * 浅到深的字体颜色
+ **/
+.color-c {
+  color: @color-c
+}
+.color-l {
+  color: @color-l
+}
+.color-m {
+  color: @color-m
+}
+.color-d {
+  color: @color-d
+}
+
+/**
  * 外链
  **/
 .outter-link {
-  color: @color-orange;
+  color: @color-blue;
 
   &:hover {
-  color: #ff1100;
+    color: #ff1100;
   }
 }
 
+/**
+ * 浮动
+ **/
 .fl {float: left; *display: inline;}
 .fr {float: right; *display: inline;}
 
-// 外边距
+/**
+ * 外边距
+ **/
 .mt5 {margin-top: 5px;}
 .mt10 {margin-top: 10px;}
 .mt15 {margin-top: 15px;}
@@ -190,11 +175,7 @@ a:hover {
 .mt50 {margin-top: 50px;}
 .mt90 {margin-top: 90px;}
 .mt100 {margin-top: 100px;}
-.mt-20 {margin-top: -20px;}
-.mt-30 {margin-top: -30px;}
 
-.mr2 {margin-right: 2px;}
-.mr4 {margin-right: 4px;}
 .mr5 {margin-right: 5px;}
 .mr10 {margin-right: 10px;}
 .mr15 {margin-right: 15px;}
@@ -202,6 +183,8 @@ a:hover {
 .mr30 {margin-right: 30px;}
 .mr50 {margin-right: 50px;}
 .mr60 {margin-right: 60px;}
+.mr90 {margin-right: 90px;}
+.mr100 {margin-right: 100px;}
 
 .mb5 {margin-bottom: 5px;}
 .mb10 {margin-bottom: 10px;}
@@ -209,20 +192,18 @@ a:hover {
 .mb20 {margin-bottom: 20px;}
 .mb30 {margin-bottom: 30px;}
 .mb40 {margin-bottom: 40px;}
+.mb50 {margin-bottom: 50px;}
+.mb60 {margin-bottom: 60px;}
+.mb90 {margin-bottom: 90px;}
+.mb100 {margin-bottom: 100px;}
 
-.ml2 {margin-left: 2px;}
-.ml4 {margin-left: 4px;}
 .ml5 {margin-left: 5px;}
 .ml10 {margin-left: 10px;}
 .ml15 {margin-left: 15px;}
 .ml20 {margin-left: 20px;}
 .ml30 {margin-left: 30px;}
 .ml40 {margin-left: 40px;}
-
-/**
- * 组件样式重置
- **/
-.input,
-.textarea {
-  margin-bottom: 0px;
-}
+.ml50 {margin-left: 50px;}
+.ml60 {margin-left: 60px;}
+.ml90 {margin-left: 90px;}
+.ml100 {margin-left: 100px;}

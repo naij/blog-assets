@@ -1,10 +1,13 @@
 <dl class="archive">
   {{#for(item in list)}}
-  <dt>{{item.ym}}</dt>
+  <dt>{{item.y}}</dt>
   <dd>
     <ul>
       {{#for(subitem in item.list)}}
-      <li><a href="/pages/article/detail?id={{subitem.id}}&type={{subitem.type}}">{{subitem.title}}</a></li>
+      <li>
+        <span class="color-l mr20">{{subitem.createdAt|toNormalTime}}</span>
+        <a href="/pages/article/detail?id={{subitem.id}}&type={{subitem.type}}">{{subitem.title}}</a>
+      </li>
       {{/for}}
     </ul>
   </dd>
